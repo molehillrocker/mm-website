@@ -1,0 +1,25 @@
+{
+  "name": "mm-website",
+  "homepage": "https://github.com/molehillrocker/mm-website",
+  "authors": [
+    "Lars Bischoff"
+  ],
+  "description": "The website for my personal magic mirror project.",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "MM",
+    "Magic",
+    "Mirror",
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
