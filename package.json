@@ -1,0 +1,25 @@
+{
+  "name": "mm-website",
+  "version": "0.0.1",
+  "description": "The website for my personal magic mirror project.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molehillrocker/mm-website.git"
+  },
+  "keywords": [
+    "MM",
+    "Magic",
+    "Mirror",
+    "AngularJS"
+  ],
+  "author": "Lars Bischoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/molehillrocker/mm-website/issues"
+  },
+  "homepage": "https://github.com/molehillrocker/mm-website#readme"
+}
