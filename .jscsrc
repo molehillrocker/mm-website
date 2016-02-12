@@ -1,0 +1,7 @@
+{
+  "preset": "google",
+  "disallowMultiLineTernary": false,
+  "disallowMultipleVarDecl": false,
+  "requireOperatorBeforeLineBreak": false,
+  "maximumLineLength": 120
+}
