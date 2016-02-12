@@ -1,0 +1,14 @@
+# Merge corpses
+*.orig
+
+# Files with a leading tilde (e.g. produced by gedit as backup of the currently edited file)
+~*
+
+# Node modules
+node_modules/
+
+# Bower libs
+bower_components/
+
+# The dist directory
+dist/
