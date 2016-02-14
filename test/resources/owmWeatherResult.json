@@ -1,0 +1,45 @@
+{
+  "coord": {
+    "lon": 8.36,
+    "lat": 49.54
+  },
+  "weather": [{
+    "id": 500,
+    "main": "Rain",
+    "description": "light rain",
+    "icon": "10d"
+  }, {
+    "id": 310,
+    "main": "Drizzle",
+    "description": "light intensity drizzle rain",
+    "icon": "09d"
+  }],
+  "base": "stations",
+  "main": {
+    "temp": 277.26,
+    "pressure": 989,
+    "humidity": 93,
+    "temp_min": 275.15,
+    "temp_max": 279.65
+  },
+  "visibility": 5000,
+  "wind": {
+    "speed": 2.6,
+    "deg": 100
+  },
+  "clouds": {
+    "all": 75http://api.openweathermap.org/data/2.5/weather?id=2925550&appid=9b69634b272454324dab9e3ed67ead2c&units=metric&lang=de
+  },
+  "dt": 1455372491,
+  "sys": {
+    "type": 1,
+    "id": 4897,
+    "message": 0.0545,
+    "country": "DE",
+    "sunrise": 1455345587,
+    "sunset": 1455381748
+  },
+  "id": 2925550,
+  "name": "Frankenthal",
+  "cod": 200
+}

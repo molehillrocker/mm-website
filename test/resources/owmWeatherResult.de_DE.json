@@ -1,0 +1,39 @@
+{
+  "coord": {
+    "lon": 8.36,
+    "lat": 49.54
+  },
+  "weather": [{
+    "id": 803,
+    "main": "Clouds",
+    "description": "überwiegend bewölkt",
+    "icon": "04d"
+  }],
+  "base": "cmc stations",
+  "main": {
+    "temp": 6.25,
+    "pressure": 983.03,
+    "humidity": 94,
+    "temp_min": 6.25,
+    "temp_max": 6.25,
+    "sea_level": 1002.97,
+    "grnd_level": 983.03
+  },
+  "wind": {
+    "speed": 4.07,
+    "deg": 243.501
+  },
+  "clouds": {
+    "all": 64
+  },
+  "dt": 1455459382,
+  "sys": {
+    "message": 0.0057,
+    "country": "DE",
+    "sunrise": 1455431881,
+    "sunset": 1455468250
+  },
+  "id": 2925550,
+  "name": "Frankenthal",
+  "cod": 200
+}
