@@ -13,7 +13,7 @@
       // Enable or disable debug logging
       $logProvider.debugEnabled(log.ENABLE_DEBUG);
 
-      $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(false);
     }
   ]);
 
