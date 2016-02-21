@@ -2,14 +2,9 @@
   'use strict';
 
   angular.module('app.feature.weather').factory('OpenWeatherMapFactory', [
-    '$log', '$resource',
-    function($log, $resource) {
-      const BASE_URI = 'http://api.openweathermap.org/data/2.5';
-      // TODO: Set these in the configuration
-      var cityId = '2925550';
-      var units = 'metric';
-      var languageId = 'de';
-      var apiKey = '<api-key>';
+    '$log', '$resource', 'WEATHER_SETTINGS',
+    function($log, $resource, weatherSettings) {
+      var owmSettings = weatherSettings.OPEN_WEATHER_MAP;
 
       var _dateTimeReviver = function(key, value) {
         if (key === 'dt' && angular.isNumber(value)) {
@@ -20,10 +15,10 @@
       };
 
       return $resource(BASE_URI + '/:intent/:subIntent', {
-        id: cityId,
-        units: units,
-        lang: languageId,
-        appid: apiKey
+        id: owmSettings.CITY_ID,
+        units: owmSettings.UNITS,
+        lang: owmSettings.LANGUAGE_ID,
+        appid: owmSettings.API_KEY
       }, {
         getWeatherInfo: {
           method: 'GET',
