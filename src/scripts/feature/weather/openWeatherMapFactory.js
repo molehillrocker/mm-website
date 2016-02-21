@@ -14,7 +14,7 @@
         return value;
       };
 
-      return $resource(BASE_URI + '/:intent/:subIntent', {
+      return $resource(owmSettings.BASE_URI + '/:intent/:subIntent', {
         id: owmSettings.CITY_ID,
         units: owmSettings.UNITS,
         lang: owmSettings.LANGUAGE_ID,
