@@ -26,5 +26,13 @@
     "angular": "~1.5.0",
     "angular-material": "~1.0.5",
     "ubuntu-fontface": "~0.1.10"
+  },
+  "overrides": {
+    "ubuntu-fontface": {
+      "main": [
+        "./ubuntu.css",
+        "./fonts/*.*"
+      ]
+    }
   }
 }
