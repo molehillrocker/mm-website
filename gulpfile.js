@@ -205,6 +205,7 @@
         ignorePath: targetDirName
       }))
       .pipe(inject(styles, {
+        name: 'app',
         ignorePath: targetDirName
       }))
       .pipe(inject(scripts, {
