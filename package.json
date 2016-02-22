@@ -22,6 +22,7 @@
     "url": "https://github.com/molehillrocker/mm-website/issues"
   },
   "homepage": "https://github.com/molehillrocker/mm-website#readme",
+  "private": true,
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "del": "^2.2.0",
