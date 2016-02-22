@@ -7,7 +7,7 @@
       var owmSettings = weatherSettings.OPEN_WEATHER_MAP;
 
       var _dateTimeReviver = function(key, value) {
-        if (key === 'dt' && angular.isNumber(value)) {
+        if (angular.isNumber(value) && (key === 'dt' || key === 'sunrise' || key === 'sunset')) {
           // NOTE: DateTime is a unix timestamp in seconds, so multiply with 1000 to get milliseconds
           return new Date(value * 1000);
         }
