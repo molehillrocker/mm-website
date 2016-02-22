@@ -54,6 +54,8 @@
             lng: data.coord.lon
           },
           weather: {
+            iconId: data.weather[0].id,
+            iconName: data.weather[0].icon,
             category: data.weather[0].main,
             description: data.weather[0].description,
             temperature: data.main.temp,
