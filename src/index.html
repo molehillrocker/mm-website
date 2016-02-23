@@ -7,10 +7,26 @@
     <!-- app:css -->
     <!-- endinject -->
   </head>
-  <body ng-app="app" ng-cloak>
-    <!-- bower:js -->
-    <!-- endinject -->
-    <!-- app:js -->
-    <!-- endinject -->
-  </body>
+  <body layout="row" ng-app="app" ng-cloak layout-fill>
+    <div layout="column">
+      <div flex style="background: brown;" ng-include="'views/weather.html'"></div>
+      <div flex style="background: green;">BOTTOM CENTER</div>
+      <div flex style="background: red;">BOTTOM RIGHT</div>
+    </div>
+    <div layout="column">
+      <div flex style="background: cyan;">TOP LEFT</div>
+      <div flex style="background: magenta;">TOP CENTER</div>
+      <div flex style="background: orange;">TOP RIGHT</div>
+    </div>
+    <div layout="column">
+      <div flex style="background: brown;">BOTTOM LEFT</div>
+      <div flex style="background: green;">BOTTOM CENTER</div>
+      <div flex style="background: red;">BOTTOM RIGHT</div>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <!-- endinject -->
+  <!-- app:js -->
+  <!-- endinject -->
+</body>
 </html>
