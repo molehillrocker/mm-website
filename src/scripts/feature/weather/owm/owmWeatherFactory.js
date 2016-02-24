@@ -24,7 +24,8 @@
         lang: owmSettings.LANGUAGE_ID,
         appid: owmSettings.API_KEY
       }, {
-        getWeatherInfo: {
+        // Current weather
+        getCurrentWeather: {
           method: 'GET',
           params: {
             intent: 'weather'
@@ -32,7 +33,8 @@
           isArray: false,
           transformResponse: transformResponse
         },
-        getWeatherForecast: {
+        // Forecast for the next 'n' days (where n is specified below as 'cnt')
+        getDailyForecast: {
           method: 'GET',
           params: {
             intent: 'forecast',

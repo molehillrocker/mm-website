@@ -8,7 +8,7 @@
         return false;
       };
 
-      this.fromOpenWeatherMapIconId = function(iconId, dateTime) {
+      this.fromIconId = function(iconId, dateTime) {
         if (!angular.isDefined(dateTime) || dateTime === null) {
           return 'wi wi-fw ' + (!angular.isDefined(iconId) ? 'wi-na' : 'wi-owm-' + iconId);
         }

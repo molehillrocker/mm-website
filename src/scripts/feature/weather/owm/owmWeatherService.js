@@ -39,7 +39,7 @@
         }
       };
 
-      this.fromOpenWeatherMapWeatherInfo = function(data) {
+      this.fromCurrentWeather = function(data) {
         if (!angular.isDefined(data) || data === null) {
           return {};
         }
@@ -87,7 +87,7 @@
         return weatherInfo;
       };
 
-      this.fromOpenWeatherMapDailyForecastInfo = function(data) {
+      this.fromDailyForecast = function(data) {
         if (!angular.isDefined(data) || data === null) {
           return {};
         }

@@ -5,14 +5,15 @@
     '$log', '$scope', '_owmWeatherFactory', '_owmWeatherService', '_owmWeatherIconService',
     function($log, $scope, _owmWeatherFactory, _owmWeatherService, _owmWeatherIconService) {
 
-      var WeatherInfo = _owmWeatherFactory.getWeatherInfo(function() {
-        var currentWeatherInfo = _owmWeatherService.fromOpenWeatherMapWeatherInfo(WeatherInfo);
+      var currentWeather = _owmWeatherFactory.getCurrentWeather(function() {
+        var currentWeatherInfo = _owmWeatherService.fromCurrentWeather(currentWeather);
         $scope.currentWeatherInfo = currentWeatherInfo;
-        $scope.currentWeatherIconClass = _owmWeatherIconService.fromOpenWeatherMapIconId(currentWeatherInfo.weather.iconId);
+        $scope.currentWeatherIconClass = _owmWeatherIconService.fromIconId(currentWeatherInfo.weather.iconId);
       });
 
-      var WeatherForecast = _owmWeatherFactory.getWeatherForecast(function() {
-        $scope.weatherForecast = _owmWeatherService.fromOpenWeatherMapDailyForecastInfo(WeatherForecast);
+      var dailyForecast = _owmWeatherFactory.getDailyForecast(function() {
+        $scope.dailyForecast = _owmWeatherService.fromDailyForecast(dailyForecast);
+      });
       });
     }
   ]);
