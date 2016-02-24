@@ -8,7 +8,7 @@
       var WeatherInfo = OpenWeatherMapFactory.getWeatherInfo(function() {
         var currentWeatherInfo = _weatherService.fromOpenWeatherMapWeatherInfo(WeatherInfo);
         $scope.currentWeatherInfo = currentWeatherInfo;
-        $scope.currentWeatherIconClass = _weatherIconService.fromOpenWeatherMapIconId(currentWeatherInfo.weather.iconName);
+        $scope.currentWeatherIconClass = _weatherIconService.fromOpenWeatherMapIconId(currentWeatherInfo.weather.iconId);
       });
 
       var WeatherForecast = OpenWeatherMapFactory.getWeatherForecast(function() {
