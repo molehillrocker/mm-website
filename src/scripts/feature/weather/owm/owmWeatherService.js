@@ -11,7 +11,7 @@
         if (degrees > 360) {
           degrees = degrees % 360;
         }
-        if (degrees > 337.5 && degrees <= 22.5) {
+        if ((degrees > 337.5 && degrees <= 360) || (degrees >= 0 && degrees <= 22.5)) {
           return 'N';
         }
         if (degrees > 22.5 && degrees <= 67.5) {
