@@ -43,6 +43,15 @@
           },
           isArray: false,
           transformResponse: transformResponse
+        },
+        // Forecast for the next 5 days with data for every three hours (= 40 individual weather infos)
+        getThreeHourlyForecast: {
+          method: 'GET',
+          params: {
+            intent: 'forecast'
+          },
+          isArray: false,
+          transformResponse: transformResponse
         }
       });
     }

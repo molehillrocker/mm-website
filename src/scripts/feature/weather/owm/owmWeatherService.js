@@ -133,13 +133,68 @@
 
           // These two seem to be optional...
           if (angular.isDefined(entry.rain) && entry.rain !== null) {
-            dailyForecast.rainVolumeInLastThreeHours = data.rain;
+            dailyForecast.rainVolumeInLastThreeHours = entry.rain;
           }
           if (angular.isDefined(entry.snow) && entry.snow !== null) {
             dailyForecast.snowVolumeInLastthreeHours = entry.snow;
           }
 
           forecastInfo.dailyForecasts.push(dailyForecast);
+        }
+
+        return forecastInfo;
+      };
+
+      this.fromThreeHourlyForecast = function(data) {
+        if (!angular.isDefined(data) || data === null) {
+          return {};
+        }
+
+        var forecastInfo = {
+          name: data.city.name,
+          //updateTimeStamp: data.dt,
+          coordinates: {
+            lat: data.city.coord.lat,
+            lng: data.city.coord.lon
+          },
+          threeHourlyForecasts: []
+        };
+
+        for (var i = 0; i < data.list.length; i++) {
+          var entry = data.list[i];
+          var threeHourlyForecast = {
+            dateTime: entry.dt,
+            weather: {
+              category: entry.weather[0].main,
+              description: entry.weather[0].description,
+              temperature: entry.main.temp,
+              // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+              temperatureMin: entry.main.temp_min,
+              // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+              temperatureMax: entry.main.temp_max,
+              pressure: entry.main.pressure,
+              // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+              pressureSeaLevel: entry.main.sea_level,
+              // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+              pressureGroundLevel: entry.main.ground_level,
+              humidity: entry.main.humidity,
+            },
+            wind: {
+              direction: getWindDirection(entry.wind.deg),
+              speed: entry.wind.speed
+            },
+            cloudiness: entry.clouds.all
+          };
+
+          // These two seem to be optional...
+          if (angular.isDefined(entry.rain) && entry.rain !== null) {
+            threeHourlyForecast.rainVolumeInLastThreeHours = entry.rain['3h'];
+          }
+          if (angular.isDefined(entry.snow) && entry.snow !== null) {
+            threeHourlyForecast.snowVolumeInLastthreeHours = entry.snow['3h'];
+          }
+
+          forecastInfo.threeHourlyForecasts.push(threeHourlyForecast);
         }
 
         return forecastInfo;

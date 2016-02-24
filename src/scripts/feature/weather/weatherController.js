@@ -14,6 +14,9 @@
       var dailyForecast = _owmWeatherFactory.getDailyForecast(function() {
         $scope.dailyForecast = _owmWeatherService.fromDailyForecast(dailyForecast);
       });
+
+      var threeHourlyForecast = _owmWeatherFactory.getThreeHourlyForecast(function() {
+        $scope.threeHourlyForecast = _owmWeatherService.fromThreeHourlyForecast(threeHourlyForecast);
       });
     }
   ]);
