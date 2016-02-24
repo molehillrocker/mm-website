@@ -14,6 +14,10 @@
         return value;
       };
 
+      var transformResponse = function(data) {
+        return angular.isString(data) && data !== '' ? JSON.parse(data, _dateTimeReviver) : {};
+      };
+
       return $resource(owmSettings.BASE_URI + '/:intent/:subIntent', {
         id: owmSettings.CITY_ID,
         units: owmSettings.UNITS,
@@ -26,9 +30,7 @@
             intent: 'weather'
           },
           isArray: false,
-          transformResponse: function(data) {
-            return JSON.parse(data, _dateTimeReviver);
-          }
+          transformResponse: transformResponse
         },
         getWeatherForecast: {
           method: 'GET',
@@ -38,9 +40,7 @@
             cnt: 5
           },
           isArray: false,
-          transformResponse: function(data) {
-            return JSON.parse(data, _dateTimeReviver);
-          }
+          transformResponse: transformResponse
         }
       });
     }
