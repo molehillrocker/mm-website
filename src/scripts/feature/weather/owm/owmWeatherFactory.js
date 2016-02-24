@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app.feature.weather').factory('OpenWeatherMapFactory', [
+  angular.module('app.feature.weather').factory('_owmWeatherFactory', [
     '$log', '$resource', 'WEATHER_SETTINGS',
     function($log, $resource, weatherSettings) {
       var owmSettings = weatherSettings.OPEN_WEATHER_MAP;

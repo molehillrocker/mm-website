@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app.feature.weather').service('_weatherService', [
+  angular.module('app.feature.weather').service('_owmWeatherService', [
     '$log',
     function($log) {
       var getWindDirection = function(degrees) {

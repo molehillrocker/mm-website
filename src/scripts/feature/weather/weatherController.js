@@ -2,17 +2,17 @@
   'use strict';
 
   angular.module('app.feature.weather').controller('WeatherController', [
-    '$log', '$scope', 'OpenWeatherMapFactory', '_weatherService', '_weatherIconService',
-    function($log, $scope, OpenWeatherMapFactory, _weatherService, _weatherIconService) {
+    '$log', '$scope', '_owmWeatherFactory', '_owmWeatherService', '_owmWeatherIconService',
+    function($log, $scope, _owmWeatherFactory, _owmWeatherService, _owmWeatherIconService) {
 
-      var WeatherInfo = OpenWeatherMapFactory.getWeatherInfo(function() {
-        var currentWeatherInfo = _weatherService.fromOpenWeatherMapWeatherInfo(WeatherInfo);
+      var WeatherInfo = _owmWeatherFactory.getWeatherInfo(function() {
+        var currentWeatherInfo = _owmWeatherService.fromOpenWeatherMapWeatherInfo(WeatherInfo);
         $scope.currentWeatherInfo = currentWeatherInfo;
-        $scope.currentWeatherIconClass = _weatherIconService.fromOpenWeatherMapIconId(currentWeatherInfo.weather.iconId);
+        $scope.currentWeatherIconClass = _owmWeatherIconService.fromOpenWeatherMapIconId(currentWeatherInfo.weather.iconId);
       });
 
-      var WeatherForecast = OpenWeatherMapFactory.getWeatherForecast(function() {
-        $scope.weatherForecast = _weatherService.fromOpenWeatherMapDailyForecastInfo(WeatherForecast);
+      var WeatherForecast = _owmWeatherFactory.getWeatherForecast(function() {
+        $scope.weatherForecast = _owmWeatherService.fromOpenWeatherMapDailyForecastInfo(WeatherForecast);
       });
     }
   ]);
