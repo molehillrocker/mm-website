@@ -8,25 +8,15 @@
     <!-- endinject -->
   </head>
   <body ng-app="app" ng-cloak>
-    <div id="content" layout="row" layout-fill layout-wrap layout-margin>
+    <div id="content">
       <!-- TOP LEFT -->
-      <div flex="30" ng-include="'views/weather.html'"></div>
-      <!-- TOP CENTER -->
-      <div flex="40" style="background-color: red;">TOP CENTER</div>
-      <!-- TOP RIGHT -->
-      <div flex="30" style="background-color: orange;">TOP RIGHT</div>
-      <!-- CENTER LEFT -->
-      <div flex="30"  style="background-color: green;">CENTER LEFT</div>
-      <!-- CENTER CENTER -->
-      <div flex="39"  style="background-color: purple;">CENTER CENTER</div>
-      <!-- CENTER RIGHT -->
-      <div flex="30" style="background-color: salmon;">CENTER RIGHT</div>
+      <div style="position: absolute; top: 0px; left: 0px; width: 30%; height: 40%;" ng-include="'views/weather.html'"></div>
+            <!-- TOP RIGHT -->
+      <div style="position: absolute; top: 0px; right: 0px; width: 30%; height: 40%; background-color: orange;">TOP RIGHT</div>
       <!-- BOTTOM LEFT -->
-      <div flex="30" style="background-color: cyan;">BOTTOM LEFT</div>
-      <!-- BOTTOM CENTER -->
-      <div flex="39" style="background-color: brown;">BOTTOM CENTER</div>
+      <div style="position: absolute; bottom: 0px; left: 0px; width: 30%; height: 40%; background-color: cyan;">BOTTOM LEFT</div>
       <!-- BOTTOM RIGHT-->
-      <div flex="30" style="background-color: magenta;">BOTTOM RIGHT</div>
+      <div style="position: absolute; bottom: 0px; right: 0px; width: 30%; height: 40%; background-color: magenta;">BOTTOM RIGHT</div>
     </div>
   </div>
   <!-- bower:js -->
