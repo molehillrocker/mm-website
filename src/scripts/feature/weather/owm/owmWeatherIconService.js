@@ -12,7 +12,11 @@
         if (!angular.isDefined(dateTime) || dateTime === null) {
           return 'wi wi-fw ' + (!angular.isDefined(iconId) ? 'wi-na' : 'wi-owm-' + iconId);
         }
-        return 'wi wi-fw ' + (!angular.isDefined(iconId) ? 'wi-na' : 'wi-owm-' + isNight() ? 'night-' : 'day-' + iconId);
+        return 'wi wi-fw ' + (!angular.isDefined(iconId)
+          ? 'wi-na'
+          : 'wi-owm-' + isNight()
+            ? 'night-'
+            : 'day-' + iconId);
       };
 
       this.fromWindDirection = function(degrees) {
