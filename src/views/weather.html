@@ -1,29 +1,44 @@
 <md-content ng-controller="WeatherController">
-<h1>JUHU</h1>
   <md-list>
-    <!-- TODO: Translate -->
-    <md-subheader class="md-no-sticky">Aktuelles Wetter</md-subheader>
-    <!-- Current weather -->
-    <md-list-item class="md-3-line">
-      <md-icon class="mm-wi-5x">
-        <i class="{{ currentWeatherIconClass }}"></i>
-      </md-icon>
-      <div class="md-list-item-text" layout="column">
-        <h3>{{ currentWeatherInfo.description }}</h3>
-        <h4>{{ currentWeatherInfo.sunrise | date }}</h4>
-        <p>{{ currentWeatherInfo.sunset | date }}</p>
+    <md-subheader>
+      <h1 style="color: #FFF;">{{location}}</h1>
+    </md-subheader>
+    <md-list-item>
+      <div>
+        <div layout="row" layout-align="space-between start" layout-fill layout-margin>
+          <i flex class="{{weatherIcon}} mm-wi-7x"></i>
+          <div flex layout="row" layout-align>
+            <span style="font-size: 5em;">{{ temperature | number: 1 }}</span>
+            <span style="font-size: 2em;">°C</span>
+          </div>
+          <div flex layout="column" layout-align="start center">
+            <i class="{{windIcon}} mm-wi-5x"></i>
+            <span>{{windSpeed}}
+              km/h</span>
+          </div>
+        </div>
+
+        <div layout="column" layout-align="start start" layout-fill layout-margin style="margin-top: 20px;">
+          <div flex layout="row" layout-fill layout-align>
+            <div flex>
+              <span>Niederschlag:&nbsp;{{ precipitation | percent: 1 }}</span>
+            </div>
+            <div flex>
+              <span>Luftfeuchte:&nbsp;{{ humidity | percent: 1 }}</span>
+            </div>
+          </div>
+          <div flex layout="row" layout-fill layout-align>
+            <div flex>
+              <span>Sonnenaufgang:&nbsp;{{ sunrise | date: "shortTime" }}
+                Uhr</span>
+            </div>
+            <div flex>
+              <span>Sonnenuntergang:&nbsp;{{ sunset | date: "shortTime" }}
+                Uhr</span>
+            </div>
+          </div>
+        </div>
       </div>
     </md-list-item>
-    <!-- Forecast -->
-    <!--
-    <md-list-item class="md-3-line" ng-repeat="item in todos">
-      <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"/>
-      <div class="md-list-item-text" layout="column">
-        <h3>{{ item.who }}</h3>
-        <h4>{{ item.what }}</h4>
-        <p>{{ item.notes }}</p>
-      </div>
-    </md-list-item>
-  -->
   </md-list>
 </md-content>
