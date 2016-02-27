@@ -70,7 +70,7 @@
             humidity: data.main.humidity,
           },
           wind: {
-            direction: getWindDirection(data.wind.deg),
+            direction: data.wind.deg,
             speed: data.wind.speed
           },
           cloudiness: data.clouds.all
