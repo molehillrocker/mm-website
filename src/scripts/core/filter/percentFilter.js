@@ -5,7 +5,7 @@
     '$filter',
     function($filter) {
       return function(input, decimals) {
-        return $filter('number')(input, decimals) + '%';
+        return !angular.isNumber(input) ? 'N/A' : $filter('number')(input, decimals) + '%';
       };
     }
   ]);
