@@ -23,12 +23,12 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0",
-    "angular-material": "~1.0.5",
-    "angular-resource": "~1.5.0",
+    "angular": "~1.5.7",
+    "angular-material": "~1.0.9",
+    "angular-resource": "~1.5.7",
     "weather-icons": "~2.0.10",
-    "ubuntu-fontface": "~0.1.10",
-    "angular-i18n": "^1.5.0"
+    "ubuntu-fontface": "~0.1.11",
+    "angular-i18n": "~1.5.7"
   },
   "overrides": {
     "ubuntu-fontface": {
