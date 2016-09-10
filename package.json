@@ -24,7 +24,7 @@
   "homepage": "https://github.com/molehillrocker/mm-website#readme",
   "private": true,
   "devDependencies": {
-    "browser-sync": "^2.13.0",
+    "browser-sync": "^2.15.0",
     "del": "^2.2.1",
     "fs": "0.0.2",
     "gulp": "^3.9.1",
