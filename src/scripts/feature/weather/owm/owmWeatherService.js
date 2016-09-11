@@ -4,8 +4,10 @@
   angular.module('app.feature.weather').service('_owmWeatherService', [
     '$log',
     function($log) {
+      /*eslint complexity: ["error", 12]*/
       var getWindDirection = function(degrees) {
         if (!angular.isNumber(degrees)) {
+          $log.warn('Wind direction "' + degrees + '" is not a number!');
           return 'N/A';
         }
         if (degrees > 360) {

@@ -13,8 +13,7 @@
   var concat = require('gulp-concat');
   var rename = require('gulp-rename');
   var notify = require('gulp-notify');
-  var jscs = require('gulp-jscs');
-  var jshint = require('gulp-jshint');
+  var eslint = require('gulp-eslint');
   var less = require('gulp-less');
   var minifyCSS = require('gulp-cssnano');
   var minifyHTML = require('gulp-htmlmin');
@@ -35,7 +34,6 @@
   // The SOURCE directories
   var sourceDirName = 'src';
   var sourceDir = path.join('.', sourceDirName);
-  var sourceDirTypes = path.join(sourceDir, 'types');
   var sourceDirScripts = path.join(sourceDir, 'scripts');
   var sourceDirAssets = path.join(sourceDir, 'assets');
   var sourceDirAssetsStyles = path.join(sourceDirAssets, 'styles');
@@ -76,34 +74,20 @@
     return del([path.join(targetDir, '/**/*')]);
   });
 
-  gulp.task('_jscs', function() {
+  gulp.task('_eslint', function() {
     return gulp.src(path.join(sourceDirScripts, '/**/*.js'))
-      .pipe(cached('js'))
-      .pipe(jscs())
-      .pipe(jshint.reporter('jshint-stylish'))
+      .pipe(eslint())
+      .pipe(eslint.format())
       // Fail in case of errors
-      .pipe(jshint.reporter('fail'))
+      .pipe(eslint.failAfterError())
       .on('error', notify.onError({
-        title: '_jshint',
-        message: 'One or mor scripts failed JSCS check!'
+        title: '_eslint',
+        message: 'One or more scripts failed ESLint check!'
       }));
   });
 
-  gulp.task('_jshint', function() {
-    return gulp.src(path.join(sourceDirTypes, '/**/*.js'))
-      .pipe(cached('js'))
-      .pipe(jshint())
-      .pipe(jshint.reporter('jshint-stylish'))
-      // Fail in case of errors
-      .pipe(jshint.reporter('fail'))
-      .on('error', notify.onError({
-        title: '_jshint',
-        message: 'One or mor scripts failed JSHint check!'
-      }));
-  });
-
-  gulp.task('_verify-js', ['_jscs', '_jshint'], function() {
-    util.log(util.colors.green('JSCS/JSHint on passed. Ready to roll!'));
+  gulp.task('_verify-js', ['_eslint'], function() {
+    util.log(util.colors.green('Verification of JavaScript passed. Ready to roll!'));
   });
 
   gulp.task('verify', ['_verify-js']);
@@ -151,6 +135,7 @@
       .pipe(gulp.dest(targetDir));
   });
 
+  /*eslint complexity: ["error", 12]*/
   gulp.task('_build-deps', ['clean'], function() {
     var jsFilter = filter('**/*.js', {
       restore: true
@@ -235,8 +220,7 @@
 
     // Watch all JS files
     var watchJS = gulp.watch([
-      path.join(sourceDirScripts, '/**/*.js'),
-      path.join(sourceDirTypes, '/**/*.js')
+      path.join(sourceDirScripts, '/**/*.js')
     ], ['_watch-js']);
     watchJS.on('change', function(event) {
       if (event.type === 'deleted') {

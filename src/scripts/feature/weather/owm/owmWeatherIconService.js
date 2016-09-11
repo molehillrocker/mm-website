@@ -3,8 +3,8 @@
 
   angular.module('app.feature.weather').service('_owmWeatherIconService', [
     '$log',
-    function($log) {
-      var isNight = function(dateTime) {
+    function() {
+      var isNight = function() {
         return false;
       };
 
