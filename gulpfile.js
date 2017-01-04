@@ -206,7 +206,9 @@
 
   gulp.task('_watch-js', ['_build-js'], browserSync.reload);
 
-  gulp.task('_watch-html', ['_build-html'], browserSync.reload);
+  gulp.task('_watch-html', function() {
+    runSequence('_build-html', '_inject-html', browserSync.reload);
+  });
 
   gulp.task('_watch-css', ['_build-css'], browserSync.reload);
 
