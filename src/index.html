@@ -10,11 +10,17 @@
   <body ng-app="app" ng-cloak>
     <div id="content">
       <!-- TOP LEFT -->
-      <div style="position: absolute; top: 0px; left: 0px; width: 30%; height: 40%;" ng-include="'views/weather.html'"></div>
+      <div style="position: absolute; top: 0px; left: 0px; width: 30%; height: 40%;">
+        <mm-weather></mm-weather>
+      </div>
       <!-- TOP RIGHT -->
-      <div style="position: absolute; top: 0px; right: 0px; width: 30%; height: 40%;" ng-include="'views/dateTime.html'"></div>
+      <div style="position: absolute; top: 0px; right: 0px; width: 30%; height: 40%;">
+        <mm-datetime></mm-datetime>
+      </div>
       <!-- BOTTOM CENTER -->
-      <div style="position: absolute; bottom: 0px; left: 25%; width: 50%;" ng-include="'views/compliment.html'"></div>
+      <div style="position: absolute; bottom: 0px; left: 25%; width: 50%;">
+        <mm-compliment></mm-compliment>
+      </div>
     </div>
   </div>
   <!-- bower:js -->
