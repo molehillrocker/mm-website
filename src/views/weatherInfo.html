@@ -1,37 +1,37 @@
 <md-content>
   <md-list>
     <md-subheader>
-      <h1 style="color: #FFF;">{{location}}</h1>
+      <h1 style="color: #FFF;">{{ vm.location }}</h1>
     </md-subheader>
     <md-list-item>
       <div>
         <div layout="row" layout-align="space-between start" layout-fill layout-margin>
-          <i flex class="{{weatherIcon}} mm-wi-7x"></i>
+          <i flex class="{{ vm.weatherIcon }} mm-wi-7x"></i>
           <div flex layout="row" layout-align>
-            <span style="font-size: 5em;">{{ temperature | number: 1 }}</span>
+            <span style="font-size: 5em;">{{ vm.temperature | number: 1 }}</span>
             <span style="font-size: 2em;">°C</span>
           </div>
           <div flex layout="column" layout-align="start center">
-            <i class="{{windIcon}} mm-wi-5x"></i>
-            <span>{{windSpeed}} km/h</span>
+            <i class="{{ vm.windIcon }} mm-wi-5x"></i>
+            <span>{{ vm.windSpeed }} km/h</span>
           </div>
         </div>
 
         <div layout="column" layout-align="start start" layout-fill layout-margin style="margin-top: 20px;">
           <div flex layout="row" layout-fill layout-align>
             <div flex>
-              <span>Niederschlag:&nbsp;<b>{{ precipitation | percent: 1 }}</b></span>
+              <span>Niederschlag:&nbsp;<b>{{ vm.precipitation | percent: 1 }}</b></span>
             </div>
             <div flex>
-              <span>Luftfeuchte:&nbsp;<b>{{ humidity | percent: 1 }}</b></span>
+              <span>Luftfeuchte:&nbsp;<b>{{ vm.humidity | percent: 1 }}</b></span>
             </div>
           </div>
           <div flex layout="row" layout-fill layout-align>
             <div flex>
-              <span>Sonnenaufgang:&nbsp;<b>{{ sunrise | date: "shortTime" }} Uhr</b></span>
+              <span>Sonnenaufgang:&nbsp;<b>{{ vm.sunrise | date: "shortTime" }} Uhr</b></span>
             </div>
             <div flex>
-              <span>Sonnenuntergang:&nbsp;<b>{{ sunset | date: "shortTime" }} Uhr</b></span>
+              <span>Sonnenuntergang:&nbsp;<b>{{ vm.sunset | date: "shortTime" }} Uhr</b></span>
             </div>
           </div>
         </div>
