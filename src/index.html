@@ -10,15 +10,31 @@
   <body ng-app="app" ng-cloak>
     <div id="content">
       <!-- TOP LEFT -->
-      <div style="position: absolute; top: 0px; left: 0px; width: 30%; height: 40%;">
-        <mm-weather></mm-weather>
+      <div style="position: absolute; top: 0px; left: 0px; width: 30%; height: 30%;">
+        <mm-weather-info></mm-weather-info>
+      </div>
+      <!-- TOP CENTER -->
+      <div style="position: absolute; top: 0px; left: 35%; width: 30%; height: 30%;">
+        <mm-weather-info></mm-weather-info>
       </div>
       <!-- TOP RIGHT -->
-      <div style="position: absolute; top: 0px; right: 0px; width: 30%; height: 40%;">
-        <mm-datetime></mm-datetime>
+      <div style="position: absolute; top: 0px; right: 0px; width: 30%; height: 30%;" ng-include="'views/dateTime.html'"></div>
+      <!-- CENTER LEFT -->
+      <div style="position: absolute; top: 35%; left: 0px; width: 40%; height: 30%;">
+        <mm-weather-chart-temperature></mm-weather-chart-temperature>
+      </div>
+      <!-- CENTER RIGHT -->
+      <div style="position: absolute; top: 35%; right: 0px; width: 40%; height: 30%;">
+        <mm-weather-chart-precipitation></mm-weather-chart-precipitation>
+      </div>
+      <!-- BOTTOM LEFT -->
+      <div style="position: absolute; bottom: 0px; left: 0px; width: 30%;">
+        <mm-compliment></mm-compliment>
       </div>
       <!-- BOTTOM CENTER -->
-      <div style="position: absolute; bottom: 0px; left: 25%; width: 50%;">
+      <div style="position: absolute; bottom: 0px; left: 35%; width: 30%;"></div>
+      <!-- BOTTOM RIGHT -->
+      <div style="position: absolute; bottom: 0px; right: 0px; width: 30%;">
         <mm-compliment></mm-compliment>
       </div>
     </div>
