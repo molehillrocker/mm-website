@@ -1,10 +1,10 @@
 <md-content>
   <div layout="column" layout-align="start end" layout-margin>
     <div flex>
-      <span style="font-size: 2em;">{{ dateTime | date : "fullDate" }}</span>
+      <span style="font-size: 2em;">{{ vm.dateTime | date : "fullDate" }}</span>
     </div>
     <div flex>
-      <span style="font-size: 5em;">{{ dateTime | date : "shortTime" }}</span>
+      <span style="font-size: 5em;">{{ vm.dateTime | date : "shortTime" }}</span>
     </div>
   </div>
 </md-content>
