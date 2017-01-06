@@ -45,15 +45,6 @@
     .constant('LOG', {
       ENABLE_DEBUG: true
     })
-    .constant('WEATHER_SETTINGS', {
-      OPEN_WEATHER_MAP: {
-        BASE_URI: 'http://api.openweathermap.org/data/2.5',
-        API_KEY: '<api-key>',
-        CITY_ID: '2925550',
-        LANGUAGE_ID: 'de',
-        UNITS: 'metric'
-      }
-    })
     .constant('COMPLIMENT_SETTINGS', [{
       name: 'MORNING',
       fromHour: 6,
