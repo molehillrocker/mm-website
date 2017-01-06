@@ -8,16 +8,23 @@
     <!-- endinject -->
   </head>
   <body ng-app="app" ng-cloak>
-    <div layout="column" layout-fill>
-      <div layout="column" layout-gt-xs="row" layout-align="space-between start" layout-align-xs="space-between stretch" flex flex-gt-xs="33">
+    <div layout="column" layout-align="space-between" layout-fill>
+      <div
+        layout="row" layout-align="space-between" flex="30"
+        layout-xs="column" layout-align-xs="space-between" flex-xs="100">
         <mm-weather-info></mm-weather-info>
         <mm-datetime></mm-datetime>
       </div>
-      <div layout="column" layout-gt-xs="row" layout-align="space-between end" layout-align-xs="space-between stretch" flex flex-gt-xs="33">
-        <mm-weather-chart-temperature></mm-weather-chart-temperature>
-        <mm-weather-chart-precipitation></mm-weather-chart-precipitation>
+      <div
+        layout="row" layout-align="space-between center" flex="50"
+        layout-xs="column" layout-align-xs="space-between" flex-xs="100"
+        layout-sm="column" layout-align-sm="space-between" flex-sm="100">
+        <mm-weather-chart-temperature flex="50" flex-xs="100" flex-sm="100"></mm-weather-chart-temperature>
+        <mm-weather-chart-precipitation flex="50" flex-xs="100" flex-sm="100"></mm-weather-chart-precipitation>
       </div>
-      <div layout="column" layout-gt-xs="row" layout-align="center end" layout-align-xs="space-between stretch" flex flex-gt-xs="33">
+      <div
+        layout="row" layout-align="center end" flex="20"
+        layout-xs="column" layout-align-xs="end" flex-xs="100">
         <mm-compliment></mm-compliment>
       </div>
     </div>
