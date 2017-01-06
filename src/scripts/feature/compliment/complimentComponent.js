@@ -7,19 +7,19 @@
     controller: [
       '$interval', '_complimentProvider',
       function($interval, _complimentProvider) {
-        var getRandomCompliment = function() {
+        var vm = this;
+
+        var retrieveRandomCompliment = function() {
           var now = new Date();
-          return _complimentProvider.provide(now.getHours());
+          vm.compliment = _complimentProvider.provide(now.getHours());
         };
 
         // Set a random compliment every 5 minutes in an endless loop
-        var complimentInterval = $interval(function() {
-          this.compliment = getRandomCompliment();
-        }, 300000);
+        var complimentInterval = $interval(retrieveRandomCompliment, 300000);
 
         this.$onInit = function() {
           // Set a random compliment on startup
-          this.compliment = getRandomCompliment();
+          retrieveRandomCompliment();
         }
 
         this.$onDestroy = function() {

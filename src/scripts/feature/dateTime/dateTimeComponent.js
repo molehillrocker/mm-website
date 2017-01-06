@@ -7,18 +7,22 @@
     controller: [
       '$interval',
       function($interval) {
-        // Set the current date and time every second in an endless loop
-        var datetimeInterval = $interval(function() {
-          this.dateTime = Date.now();
-        }, 1000);
+        var vm = this;
 
-        this.$onInit = function() {
+        var retrieveCurrentDateTime = function(){
+          vm.dateTime = Date.now();
+        };
+
+        // Set the current date and time every second in an endless loop
+        var dateTimeInterval = $interval(retrieveCurrentDateTime, 1000);
+
+        vm.$onInit = function() {
           // Set the current date and time on startup
-          this.dateTime = Date.now();
+          retrieveCurrentDateTime();
         }
 
-        this.$onDestroy = function() {
-          $interval.cancel(datetimeInterval);
+        vm.$onDestroy = function() {
+          $interval.cancel(dateTimeInterval);
         };
       }
     ]
