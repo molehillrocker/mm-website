@@ -4,8 +4,7 @@
   angular.module('app', [
     'app.config',
     'app.core',
-    'app.feature',
-    'ngMaterial'
+    'app.feature'
   ]);
 
   angular.module('app').config([
