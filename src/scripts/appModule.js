@@ -44,31 +44,5 @@
     // Log settings
     .constant('LOG', {
       ENABLE_DEBUG: true
-    })
-    .constant('COMPLIMENT_SETTINGS', [{
-      name: 'MORNING',
-      fromHour: 6,
-      toHour: 10,
-      compliments: ['Good morning!']
-    }, {
-      name: 'NOON',
-      fromHour: 10,
-      toHour: 13,
-      compliments: ['Lunch... yay!']
-    }, {
-      name: 'AFTERNOON',
-      fromHour: 13,
-      toHour: 18,
-      compliments: ['Good afternoon!']
-    }, {
-      name: 'EVENING',
-      fromHour: 18,
-      toHour: 0,
-      compliments: ['Good evening!']
-    }, {
-      name: 'NIGHT',
-      fromHour: 0,
-      toHour: 6,
-      compliments: ['You should sleep!']
-    }]);
+    });
 })();
