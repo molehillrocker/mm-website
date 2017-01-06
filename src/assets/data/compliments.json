@@ -1,0 +1,17 @@
+{
+  "MORNING": [
+    "Good morning"
+  ],
+  "NOON": [
+    "Lunch... yay"
+  ],
+  "AFTERNOON": [
+    "Good afternoon!"
+  ],
+  "EVENING": [
+    "Good evening!"
+  ],
+  "NIGHT": [
+    "You should sleep!"
+  ]
+}

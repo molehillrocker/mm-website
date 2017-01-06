@@ -5,13 +5,20 @@
     templateUrl: '/views/compliment.html',
     controllerAs: 'vm',
     controller: [
-      '$interval', '_complimentProvider',
-      function($interval, _complimentProvider) {
+      '$log', '$interval', '_complimentProvider',
+      function($log, $interval, _complimentProvider) {
         var vm = this;
 
         var retrieveRandomCompliment = function() {
           var now = new Date();
-          vm.compliment = _complimentProvider.provide(now.getHours());
+          _complimentProvider.provide(now.getHours())
+            .then(function(compliment) {
+              vm.compliment = compliment;
+            })
+            .catch(function(errorMessage) {
+              $log.error('Could not get compliment! Reason:', errorMessage);
+              vm.compliment = 'N/A';
+            });
         };
 
         // Set a random compliment every 5 minutes in an endless loop

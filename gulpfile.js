@@ -38,6 +38,7 @@
   var sourceDirAssets = path.join(sourceDir, 'assets');
   var sourceDirAssetsStyles = path.join(sourceDirAssets, 'styles');
   var sourceDirAssetsImages = path.join(sourceDirAssets, 'images');
+  var sourceDirAssetsData = path.join(sourceDirAssets, 'data');
   var sourceDirViews = path.join(sourceDir, 'views');
 
   // The TARGET directories
@@ -49,6 +50,7 @@
   var targetDirAssets = path.join(targetDir, 'assets');
   var targetDirAssetsStyles = path.join(targetDirAssets, 'css');
   var targetDirAssetsImages = path.join(targetDirAssets, 'img');
+  var targetDirAssetsData = path.join(targetDirAssets, 'data');
   var targetDirViews = path.join(targetDir, 'views');
   var targetDirDeps = path.join(targetDir, 'deps');
 
@@ -174,6 +176,16 @@
       .pipe(gulp.dest(targetDirAssetsImages));
   });
 
+  gulp.task('_build-data', function() {
+    return gulp.src(path.join(sourceDirAssetsData, '/**/*'))
+      .pipe(cached('data'))
+      // Simply copy all static data
+      .pipe(remember('data'))
+      .pipe(gulp.dest(targetDirAssetsData));
+  });
+
+  gulp.task('_build-static-assets', ['_build-img', '_build-data']);
+
   gulp.task('_inject-html', function() {
     var deps = getDeps()
       .pipe(gulp.dest(path.join(targetDirDeps)));
@@ -201,7 +213,7 @@
   });
 
   gulp.task('build', ['clean'], function(callback) {
-    runSequence(['_build-js', '_build-css', '_build-html', '_build-img'], '_inject-html', callback);
+    runSequence(['_build-js', '_build-css', '_build-html', '_build-static-assets'], '_inject-html', callback);
   });
 
   gulp.task('_watch-js', ['_build-js'], browserSync.reload);
