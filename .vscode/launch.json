@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chromium against localhost",
+            "url": "http://localhost:8085",
+            "port":9222,
+            // Specify source directory where our code base is located
+            "webRoot": "${workspaceRoot}/src",
+            "runtimeArgs": [
+              // Use a separate window
+              "--new-window",
+              // Use incognito mode
+              "--incognito",
+              // Enable remote debugging port
+              "--remote-debugging-port=9222"
+            ],
+            // Use a different directory for user data to not clutter an existing chromium instance
+            "userDataDir": "${workspaceRoot}/.vscode/chrome",
+            // Define Chromium executable manually
+            "runtimeExecutable": "/usr/bin/chromium-browser"
+        }
+    ]
+}
