@@ -12,3 +12,8 @@ bower_components/
 
 # The dist directory
 dist/
+
+# Visual Studio Code directory
+.vscode/*
+# Keep the workspace-specific launch.json
+!.vscode/launch.json
