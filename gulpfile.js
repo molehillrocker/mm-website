@@ -5,6 +5,7 @@
   // ==========================================================================
 
   var gulp = require('gulp');
+  var fs = require('fs');
   var path = require('path');
   var del = require('del');
   var runSequence = require('run-sequence');
@@ -20,11 +21,11 @@
   var uglify = require('gulp-uglify');
   var inject = require('gulp-inject');
   var angularFilesort = require('gulp-angular-filesort');
-  var mainBowerFiles = require('gulp-main-bower-files');
-  var filter = require('gulp-filter');
+  var mainNpmFiles = require('gulp-main-node-files');
   var cached = require('gulp-cached');
   var remember = require('gulp-remember');
   var rev = require('gulp-rev');
+  // var debug = require('gulp-debug');
 
   // ==========================================================================
 
@@ -53,22 +54,6 @@
   var targetDirAssetsData = path.join(targetDirAssets, 'data');
   var targetDirViews = path.join(targetDir, 'views');
   var targetDirDeps = path.join(targetDir, 'deps');
-
-  // ==========================================================================
-
-  function getDeps() {
-    return gulp.src('./bower.json')
-      .pipe(mainBowerFiles(), {
-        read: false
-      });
-  }
-
-  function getAppScripts() {
-    return gulp.src(path.join(targetDirJSAppScripts, '/**/*.js'), {
-        read: true
-      })
-      .pipe(angularFilesort());
-  }
 
   // ==========================================================================
 
@@ -137,35 +122,6 @@
       .pipe(gulp.dest(targetDir));
   });
 
-  /*eslint complexity: ["error", 12]*/
-  gulp.task('_build-deps', ['clean'], function() {
-    var jsFilter = filter('**/*.js', {
-      restore: true
-    });
-
-    var cssFilter = filter('**/*.css', {
-      restore: true
-    });
-
-    var htmlFilter = filter('**/*.html', {
-      restore: true
-    });
-
-    return getDeps()
-      .pipe(isProductionMode ? jsFilter : util.noop())
-      .pipe(isProductionMode ? uglify() : util.noop())
-      .pipe(isProductionMode ? concat('vendor.js') : util.noop())
-      .pipe(isProductionMode ? jsFilter.restore : util.noop())
-      .pipe(isProductionMode ? cssFilter : util.noop())
-      .pipe(isProductionMode ? minifyCSS() : util.noop())
-      .pipe(isProductionMode ? concat('vendor.css') : util.noop())
-      .pipe(isProductionMode ? cssFilter.restore : util.noop())
-      .pipe(isProductionMode ? htmlFilter : util.noop())
-      .pipe(isProductionMode ? minifyHTML() : util.noop())
-      .pipe(isProductionMode ? htmlFilter.restore : util.noop())
-      .pipe(gulp.dest(path.join(targetDirDeps)));
-  });
-
   gulp.task('_build-html', ['_build-html-index-file', '_build-html-views']);
 
   gulp.task('_build-img', function() {
@@ -187,18 +143,25 @@
   gulp.task('_build-static-assets', ['_build-img', '_build-data']);
 
   gulp.task('_inject-html', function() {
-    var deps = getDeps()
-      .pipe(gulp.dest(path.join(targetDirDeps)));
+    var packageJson = JSON.parse(fs.readFileSync('./package.json'));
+
+    var deps = gulp.src(mainNpmFiles({
+        overrides: packageJson.overrides
+      }), {
+        base: 'node_modules'
+      })
+      .pipe(gulp.dest(targetDirDeps));
 
     var styles = gulp.src(path.join(targetDirAssetsStyles, '/**/*.css'), {
       read: false
     });
 
-    var scripts = getAppScripts();
+    var scripts = gulp.src(path.join(targetDirJSAppScripts, '/**/*.js'))
+      .pipe(angularFilesort());
 
     return gulp.src(path.join(targetDir, 'index.html'))
       .pipe(inject(deps, {
-        name: 'bower',
+        name: 'deps',
         ignorePath: targetDirName
       }))
       .pipe(inject(styles, {
